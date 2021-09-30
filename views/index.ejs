@@ -1,0 +1,31 @@
+<%- include('partials/header')%>
+
+
+    <div class="container">
+        <header class="jumbotron">
+            <div class="container">
+                <h1>Welcome Tour and Travelers</h1>
+                <p>“Travel makes one modest. You see what a tiny place you occupy in the world.”</p>
+                <p style="text-align: right;">~ Gustave Flaubert</p>
+                <p>
+                    <a class="btn btn-primary btn-large" href="/tourism/new">Add new Tour</a>
+                </p>
+            </div>
+        </header>
+        <div class="row" style="display:flex; flex-wrap: wrap;">
+            <% tour.forEach(function (i) { %>
+                <div class="col-md-3 col-sm-6">
+                    <div class="img-thumbnail">
+                        <img src="<%=i.image%>" width="200" height="200">
+                        <div class="caption">
+                            <h4>
+                                <%=i.name %>
+                            </h4>
+                        </div>
+                        <a href="/tourism/<%= i._id %>" class="btn btn-outline-info btn-sm float-middle">More Info</a>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+    </div>
+    <%- include('partials/footer')%>
