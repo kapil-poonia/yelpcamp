@@ -2,19 +2,14 @@ var express = require("express");
 var app = express();
 var bodyparser = require("body-parser");
 var mongoose = require("mongoose");
+var Tour = require("./models/tour_schema");
+var seedDB = require("./seeds");
 
+seedDB();
 mongoose.connect("mongodb://localhost/tourism");
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
-//Schema setup
-var toursimSchema = new mongoose.Schema({
-    name: String,
-    image: String,
-    description: String
-});
-
-var Tour = mongoose.model("Tour", toursimSchema);
 
 // Tour.create({
 //     name: "Munnar",
