@@ -44,13 +44,13 @@ app.post("/tourism", function(req, res) {
 });
 
 //NEW- form to create new tour
-app.get("/tourism/new", function(req, res) {
+app.get("/tourism/new", (req, res) => {
     res.render('new.ejs');
 });
 
 
 //SHOW - shows more info about one tour
-app.get("/tourism/:id", function(req, res) {
+app.get("/tourism/:id", (req, res) => {
     //find the tour with provided id
     Tour.findById(req.params.id, function(err, foundtour) {
         if (err)
